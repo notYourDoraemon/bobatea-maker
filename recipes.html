@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boba Recipes - Popular Combinations</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipes-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .recipe-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .recipe-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .recipe-description {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .recipe-ingredients {
+            margin-bottom: 1.5rem;
+        }
+        
+        .ingredient {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+        }
+        
+        .ingredient-emoji {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .try-recipe-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .try-recipe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .easy { background: #2ecc71; color: white; }
+        .medium { background: #f39c12; color: white; }
+        .popular { background: var(--primary-color); color: white; }
+    </style>
+</head>
+<body>
+    <div class="recipes-container">
+        <header>
+            <a href="index.html" class="back-btn">← Back to Customizer</a>
+            <h1>Popular Boba Recipes</h1>
+            <p>Try these popular combinations in the simulator!</p>
+        </header>
+
+        <div class="recipe-grid">
+            <div class="recipe-card">
+                <div class="difficulty popular">Most Popular</div>
+                <h3 class="recipe-title">Classic Brown Sugar Boba</h3>
+                <p class="recipe-description">The most popular boba drink! Sweet brown sugar syrup with chewy tapioca pearls.</p>
+                <div class="recipe-ingredients">
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🥤</span>
+                        <span>Clear Cup</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">☕</span>
+                        <span>Classic Tea</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">⚫</span>
+                        <span>Tapioca Pearls</span>
+                    </div>
+                </div>
+                <button class="try-recipe-btn" onclick="tryRecipe('transparent', 'classic', ['tapioca'])">
+                    Try This Recipe!
+                </button>
+            </div>
+
+            <div class="recipe-card">
+                <div class="difficulty easy">Easy</div>
+                <h3 class="recipe-title">Matcha Bubble Tea</h3>
+                <p class="recipe-description">Refreshing green tea flavor with a smooth, earthy taste. Perfect for matcha lovers!</p>
+                <div class="recipe-ingredients">
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🟢</span>
+                        <span>Blue Cup</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🍃</span>
+                        <span>Matcha Tea</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🟩</span>
+                        <span>Grass Jelly</span>
+                    </div>
+                </div>
+                <button class="try-recipe-btn" onclick="tryRecipe('blue', 'matcha', ['jelly'])">
+                    Try This Recipe!
+                </button>
+            </div>
+
+            <div class="recipe-card">
+                <div class="difficulty easy">Easy</div>
+                <h3 class="recipe-title">Taro Delight</h3>
+                <p class="recipe-description">Creamy purple taro with silky pudding. A sweet and comforting combination!</p>
+                <div class="recipe-ingredients">
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🟣</span>
+                        <span>Purple Cup</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🍠</span>
+                        <span>Taro Tea</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🟡</span>
+                        <span>Pudding</span>
+                    </div>
+                </div>
+                <button class="try-recipe-btn" onclick="tryRecipe('purple', 'taro', ['pudding'])">
+                    Try This Recipe!
+                </button>
+            </div>
+
+            <div class="recipe-card">
+                <div class="difficulty medium">Fun</div>
+                <h3 class="recipe-title">Strawberry Popping Party</h3>
+                <p class="recipe-description">Sweet strawberry tea with bursting popping boba for a fun texture experience!</p>
+                <div class="recipe-ingredients">
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🩷</span>
+                        <span>Pink Cup</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🍓</span>
+                        <span>Strawberry Tea</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🔴</span>
+                        <span>Popping Boba</span>
+                    </div>
+                </div>
+                <button class="try-recipe-btn" onclick="tryRecipe('pink', 'strawberry', ['popping'])">
+                    Try This Recipe!
+                </button>
+            </div>
+            <div class="recipe-card">
+                <div class="difficulty medium">Advanced</div>
+                <h3 class="recipe-title">Ultimate Mix</h3>
+                <p class="recipe-description">For the adventurous! Classic tea with multiple toppings for maximum texture variety.</p>
+                <div class="recipe-ingredients">
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🥤</span>
+                        <span>Clear Cup</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">☕</span>
+                        <span>Classic Tea</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">⚫</span>
+                        <span>Tapioca Pearls</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🟩</span>
+                        <span>Grass Jelly</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🟡</span>
+                        <span>Pudding</span>
+                    </div>
+                </div>
+                <button class="try-recipe-btn" onclick="tryRecipe('transparent', 'classic', ['tapioca', 'jelly', 'pudding'])">
+                    Try This Recipe!
+                </button>
+            </div>
+
+            <div class="recipe-card">
+                <div class="difficulty popular">Café Style</div>
+                <h3 class="recipe-title">Matcha Tapioca Classic</h3>
+                <p class="recipe-description">Traditional matcha bubble tea with classic tapioca pearls. A café favorite!</p>
+                <div class="recipe-ingredients">
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🥤</span>
+                        <span>Clear Cup</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">🍃</span>
+                        <span>Matcha Tea</span>
+                    </div>
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">⚫</span>
+                        <span>Tapioca Pearls</span>
+                    </div>
+                </div>
+                <button class="try-recipe-btn" onclick="tryRecipe('transparent', 'matcha', ['tapioca'])">
+                    Try This Recipe!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function tryRecipe(cupColor, teaFlavor, toppings) {
+            localStorage.setItem('recipeData', JSON.stringify({
+                cupColor: cupColor,
+                teaFlavor: teaFlavor,
+                toppings: toppings
+            }));
+                        window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

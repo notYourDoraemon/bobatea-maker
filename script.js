@@ -1,5 +1,27 @@
 let state = { cupColor: 'transparent', teaFlavor: 'classic', toppings: [] };
 const colors = { classic: '#8B4513', matcha: '#90EE90', taro: '#DDA0DD', strawberry: '#FFB6C1' };
+
+function loadRecipe() {
+    const recipeData = localStorage.getItem('recipeData');
+    if (recipeData) {
+        const recipe = JSON.parse(recipeData);
+        state = { cupColor: recipe.cupColor, teaFlavor: recipe.teaFlavor, toppings: recipe.toppings };
+        
+        document.querySelectorAll('.cup-color').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.color === recipe.cupColor);
+        });
+        document.querySelectorAll('.tea-flavor').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.flavor === recipe.teaFlavor);
+        });
+        document.querySelectorAll('.topping').forEach(btn => {
+            btn.classList.toggle('active', recipe.toppings.includes(btn.dataset.topping));
+        });
+        
+        localStorage.removeItem('recipeData');
+        updateDisplay();
+    }
+}
+
 //boba customisation
 function updateDisplay() {
     const cup = document.getElementById('bobaCup');
@@ -52,4 +74,7 @@ document.addEventListener('click', e => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', updateDisplay);
+document.addEventListener('DOMContentLoaded', () => {
+    loadRecipe();
+    updateDisplay();
+});
