@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boba Tea Customisation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Build Your Perfect Boba!</h1>
+            <p>Customize your bubble tea, idk but yeah make it cuz i cant go out and get one rn ;-;</p>
+        </header>
+
+        <main class="main-content">
+            <section class="customization-panel">
+                <div class="option-group">
+                    <h3>Cup Color</h3>
+                    <div class="options-grid">
+                        <button class="option-btn cup-color active" data-color="transparent">
+                            <div class="color-preview transparent"></div>
+                            Clear
+                        </button>
+                        <button class="option-btn cup-color" data-color="blue">
+                            <div class="color-preview blue"></div>
+                            Blue
+                        </button>
+                        <button class="option-btn cup-color" data-color="pink">
+                            <div class="color-preview pink"></div>
+                            Pink
+                        </button>
+                        <button class="option-btn cup-color" data-color="purple">
+                            <div class="color-preview purple"></div>
+                            Purple
+                        </button>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <h3>Tea Flavor</h3>
+                    <div class="options-grid">
+                        <button class="option-btn tea-flavor active" data-flavor="classic" data-color="#8B4513">
+                            ☕ Classic
+                        </button>
+                        <button class="option-btn tea-flavor" data-flavor="matcha" data-color="#90EE90">
+                            🍃 Matcha
+                        </button>
+                        <button class="option-btn tea-flavor" data-flavor="taro" data-color="#DDA0DD">
+                            🍠 Taro
+                        </button>
+                        <button class="option-btn tea-flavor" data-flavor="strawberry" data-color="#FFB6C1">
+                            🍓 Strawberry
+                        </button>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <h3>Toppings</h3>
+                    <div class="options-grid">
+                        <button class="option-btn topping" data-topping="tapioca">
+                            ⚫ Tapioca Pearls (google said this is the most common)
+                        </button>
+                        <button class="option-btn topping" data-topping="jelly">
+                            🟩 Grass Jelly
+                        </button>
+                        <button class="option-btn topping" data-topping="popping">
+                            🔴 Popping Boba
+                        </button>
+                        <button class="option-btn topping" data-topping="pudding">
+                            🟡 Pudding
+                        </button>
+                    </div>
+                </div>
+
+                <button class="create-btn" id="createDrink">
+                    ✨ Create My Drink! ✨
+                </button>
+            </section>
+            <section class="cup-display">
+                <div class="cup-container">
+                    <div class="cup" id="bobaCup">
+                        <div class="tea-liquid" id="teaLiquid"></div>
+                        <div class="toppings-container" id="toppingsContainer"></div>
+                        <div class="foam"></div>
+                    </div>
+                    <div class="straw"></div>
+                </div>
+                <div class="cup-info">
+                    <h4>Your Creation:</h4>
+                    <p id="drinkDescription">Classic bubble tea in a clear cup</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
